@@ -1,0 +1,30 @@
+#端口设置
+server:
+  port: 8083
+
+#连接数据库
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?dormitory=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: chenyicai
+    password: cyc1234
+  jpa:
+    show-sql: true
+  servlet:
+    multipart:
+      max-file-size: 30MB  #设置上传文件的大小
+      max-request-size: 30MB
+
+#日志级别（一般设置为INFO）
+logging:
+  level:
+    com:
+      example:
+        vuedemo:
+          mapper: debug
+
+mybatis-plus:
+  configuration:
+    # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
