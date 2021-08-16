@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.guet.mapper.UserMapper">
+
+    <select id="selectByName" resultType="cn.edu.guet.entity.Users" parameterType="string">
+        SELECT username,password FROM user WHERE username=#{username}
+    </select>
+    <select id="selectRoleByName" resultType="cn.edu.guet.entity.Resource" parameterType="string">
+        select s.RESOURCE_NAME
+        FROM user u,role r,resource s,user_role_ref urr,resource_role_ref rrr
+        WHERE u.username=#{username}
+          AND u.itemCode=urr.USER_CODE
+          AND urr.ROLE_CODE=r.itemCode
+          AND r.itemCode=rrr.ROLE_CODE
+          AND rrr.RESOURCE_CODE=s.itemCode
+    </select>
+</mapper>

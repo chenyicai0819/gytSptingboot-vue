@@ -10,36 +10,38 @@
 
 <script>
 
+import axios from "axios";
 
+axios.defaults.withCredentials = true;
   export default {
       data: function () {
           return {
               loginForm:{
-                  username:'陈益财',
-                  password: '111111'
+                  username:'张晓晓',
+                  password: '123456'
               }
           }
       },
       methods:{
           login(){
               this.axios({
+
                   headers: {
                       'Content-Type': 'application/json;charset=UTF-8'
                   },
-                  method: 'get',
-                  // url: 'http://localhost:8083/login',
-                  url:'http://rap2api.taobao.org/app/mock/data/2048418',
-                  data: JSON.stringify(this.loginForm)
+                  method: 'post',
+                  url: 'http://localhost:8083/login?username=张晓晓&password=123456',
+                  //url:'http://rap2api.taobao.org/app/mock/data/2048418',
+                  data: JSON.stringify(this.loginForm),
               }).then(res => {
-                  console.log(res.data);
+                  console.log(res);
                   //如果res.data为true（不为null）
-                  /*if(res.data){
+                  if(res.data.code==1000){
                     // 将拿到的sid放入setsId中
-                      this.$store.commit('setsId',res.data.sId)
+                      this.$store.commit('setsId',res.data.result)
                     // 路由：跳转界面到index
                       this.$router.push('/index');
-                  }*/
-                  this.$router.push('/index')
+                  }
               })
           }
       }
