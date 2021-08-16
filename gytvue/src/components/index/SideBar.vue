@@ -1,6 +1,6 @@
 <template>
   <div class="sideBar">
-    <ul v-for="menu in allMenus" class="caidan">
+    <ul v-for="menu in allMenus" class="caidan" v-on:click="toggle($event)">
       <tree-menu :menu="menu"></tree-menu>
     </ul>
   </div>
@@ -19,9 +19,10 @@ export default {
       resourceName:''
     }
   },
-  el:'.son',
   methods:{
-    toggle:()=>{
+    toggle:(e)=>{
+      console.log(e.target);
+      console.log(e.target.children);
     }
   },
   // 注册组件
@@ -110,28 +111,78 @@ export default {
                 menu_url: "/signalSource/sourceManage",
                 id: "2-1",
                 level: "2",
-                pid: "2"
+                pid: "2",
+                childTrees: []
               }, {
                 menu_name: "服务团队",
                 menu_url: "/doctor/doctor",
                 id: "2-2",
                 level: "2",
-                pid: "2"
+                pid: "2",
+                childTrees: []
               }, {
                 menu_name: "开展项目",
                 menu_url: "/project/characteri",
                 id: "2-3",
                 level: "2",
-                pid: "2"
+                pid: "2",
+                childTrees: []
               }, {
                 menu_name: "功效特色",
                 menu_url: "/project/project",
                 id: "2-4",
                 level: "2",
-                pid: "2"
-              },
+                pid: "2",
+                childTrees: []
+              },{
+                menu_name: "信息维护",
+                menu_url: "/informationManage/informationManage",
+                id: "2-5",
+                level: "2",
+                pid: "2",
+                childTrees: []
+              }
             ]
           }
+        ]
+      }
+      else if (res.data.resourceName=='ro102'||res.data.resourceName=='ro101'){
+        this.allMenus = [{
+          menu_name: "信息管理",
+          menu_url: "",
+          id: "2",
+          level: "1",
+          pid: "",
+          childTrees: [
+            {
+              menu_name: "开展项目",
+              menu_url: "/project/characteri",
+              id: "2-3",
+              level: "2",
+              pid: "2",
+              childTrees: []
+            }, {
+              menu_name: "功效特色",
+              menu_url: "/project/project",
+              id: "2-4",
+              level: "2",
+              pid: "2",
+              childTrees: []
+            }, {
+              menu_name: "国医堂机构信息审核",
+              menu_url: "/audit/audit",
+              id: "2-6",
+              level: "2",
+              pid: "2",
+              childTrees: []
+          }
+          ]
+        }
+        ]
+      }
+      else if (res.data.resourceName=='ro100'){
+        this.allMenus = [
+
         ]
       }
     })
@@ -146,5 +197,8 @@ export default {
   height: 800px;
   background-color: yellow;
   float: left;
+}
+.caidan{
+
 }
 </style>
