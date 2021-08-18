@@ -4,6 +4,7 @@ import cn.edu.guet.entity.Resource;
 import cn.edu.guet.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,6 +23,14 @@ public class UserController {
     @RequestMapping("/getUserRole")
     public Resource getUserRole(String name){
         return userService.selectRoleByName(name);
+    }
+    @GetMapping("/selectPhone")
+    public String selectPhone(String name){
+        return userService.selectPhone(name);
+    }
+    @GetMapping("/selectOldPwd")
+    public String selectOldPwd(String name){
+        return userService.selectOldPwd(name);
     }
 }
 

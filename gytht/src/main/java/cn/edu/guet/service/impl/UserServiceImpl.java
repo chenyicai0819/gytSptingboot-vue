@@ -28,4 +28,14 @@ public class UserServiceImpl implements IUserService {
     public Resource selectRoleByName(String username) {
         return userMapper.selectRoleByName(username);
     }
+
+    @Override
+    public String selectPhone(String name) {
+        return userMapper.selectPhone(name);
+    }
+
+    @Override
+    public String selectOldPwd(String name) {
+        return userMapper.selectOldPwd(name);
+    }
 }

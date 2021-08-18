@@ -16,4 +16,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface UserMapper {
     Users selectByName(String username);
     Resource selectRoleByName(String username);
+    String selectPhone(String name);
+    String selectOldPwd(String name);
 }

@@ -5,6 +5,7 @@ import Login from "../components/Login";
 import MainContent from "../components/index/MainContent";
 import ViewUser from "../components/user/ViewUser";
 import AddUser from "../components/user/AddUser";
+import Register from "../components/Register";
 
 Vue.use(Router)
 
@@ -14,6 +15,11 @@ export default new Router({
       path: '/',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register
     },
     {
       path: '/index',

@@ -14,4 +14,6 @@ import cn.edu.guet.entity.Users;
 public interface IUserService {
     Users selectByName(String username);
     Resource selectRoleByName(String username);
+    String selectPhone(String name);
+    String selectOldPwd(String name);
 }

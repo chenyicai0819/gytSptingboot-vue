@@ -14,4 +14,10 @@
           AND r.itemCode=rrr.ROLE_CODE
           AND rrr.RESOURCE_CODE=s.itemCode
     </select>
+    <select id="selectPhone" resultType="java.lang.String" parameterType="string">
+        SELECT mobilephone FROM user WHERE username=#{name}
+    </select>
+    <select id="selectOldPwd" resultType="java.lang.String" parameterType="string">
+        SELECT password FROM user WHERE username=#{name}
+    </select>
 </mapper>
