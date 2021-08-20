@@ -41,6 +41,7 @@ export default {
         method: 'post',
         url: `http://localhost:8083/login?username=${this.loginForm.username}&password=${this.loginForm.password}`,
       }).then(res => {
+
         console.log(res);
         console.log(this.loginForm.username);
         //如果res.data为true（不为null）
