@@ -46,7 +46,7 @@ public class LoginSuccessHandlerImpl implements AuthenticationSuccessHandler {
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
-        SecurityHandlerUtil.responseHandler(httpServletResponse,new ResultJSON(USER_LOGIN_SUCCESS_CODE,USER_LOGIN_SUCCESS_MSG));
+        SecurityHandlerUtil.responseHandler(httpServletResponse,new ResultJSON(USER_LOGIN_SUCCESS_CODE,USER_LOGIN_SUCCESS_MSG,httpServletRequest.getParameter("username")));
         Uuid uuid=new Uuid();
         Date date = new Date();
         Timestamp nousedate = new Timestamp(date.getTime());

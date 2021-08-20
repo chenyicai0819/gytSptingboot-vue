@@ -1,5 +1,6 @@
 package cn.edu.guet.mapper;
 
+import cn.edu.guet.entity.TestUpdataLog;
 import cn.edu.guet.entity.Testlog;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -13,4 +14,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface TestLogMapper {
     void addUserLoginLog(Testlog testlog);
+    void addUpdataLog(TestUpdataLog testUpdataLog);
 }

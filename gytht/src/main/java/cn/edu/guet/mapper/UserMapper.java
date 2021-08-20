@@ -18,4 +18,5 @@ public interface UserMapper {
     Resource selectRoleByName(String username);
     String selectPhone(String name);
     String selectOldPwd(String name);
+    int updataPwd(String username,String password);
 }

@@ -28,5 +28,8 @@ public class ResultArgsUtil {
     public static String LOGOUT_SUCCESS_MSG = "注销成功";
     public static Integer LOGOUT_SUCCESS_CODE = 1005;
 
+    //注销成功
+    public static String UPDATA_SUCCESS_MSG = "修改成功";
+    public static Integer UPDATA_SUCCESS_CODE = 1010;
 }
 

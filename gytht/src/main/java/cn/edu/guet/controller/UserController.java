@@ -32,5 +32,14 @@ public class UserController {
     public String selectOldPwd(String name){
         return userService.selectOldPwd(name);
     }
+    @GetMapping("/updataPwd")
+    public boolean updataPwd(String username,String password){
+        int isTrue=userService.updataPwd(username,password);
+        if (isTrue==1){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
 

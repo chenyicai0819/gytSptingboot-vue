@@ -38,4 +38,9 @@ public class UserServiceImpl implements IUserService {
     public String selectOldPwd(String name) {
         return userMapper.selectOldPwd(name);
     }
+
+    @Override
+    public int updataPwd(String username,String password) {
+        return userMapper.updataPwd(username,password);
+    }
 }

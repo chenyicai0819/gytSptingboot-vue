@@ -109,12 +109,30 @@ export default {
           });
         }
         else{
-          this.$message("提交了修改申请");
-          this.dialogVisible=false
+          this.updataPost();
         }
       }else{
         this.$message('请完整填写内容');
       }
+    },
+    updataPost(){
+      this.axios({
+        headers: {
+          'Content-Type': 'application/json;charset=UTF-8'
+        },
+        method: 'get',
+        url: `http://localhost:8083/updataPwd?username=`+this.sId+`&password=`+this.formLabelAlign.newPwd2,
+      }).then(res => {
+        if (res.data==true){
+          this.$message({
+            message: '恭喜你，密码修改成功',
+            type: 'success'
+          });
+          this.dialogVisible=false
+        }else{
+          this.$message.error('密码修改失败');
+        }
+      })
     }
   }
 }

@@ -2,6 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.guet.mapper.TestLogMapper">
     <insert id="addUserLoginLog" parameterType="cn.edu.guet.entity.Testlog">
-        INSERT INTO testlog VALUES (#{uuid},#{method},#{RequestURL},#{RemoteHOST},#{RequestURI},#{CODE},#{username},#{loginTime})
+        INSERT INTO testlog(uuid,method,RequestURL,RemoteHOST,RequestURI,CODE,username,loginTime)
+        VALUES (#{uuid},#{method},#{RequestURL},#{RemoteHOST},#{RequestURI},#{CODE},#{username},#{loginTime})
+    </insert>
+    <insert id="addUpdataLog" parameterType="cn.edu.guet.entity.TestUpdataLog">
+        INSERT INTO testupdatalog(uuid,method,RequestURL,RemoteHOST,RequestURI,CODE,username,sql,UpdataTime)
+        VALUES (#{uuid},#{method},#{RequestURL},#{RemoteHOST},#{RequestURI},#{CODE},#{username},#{sql},#{UpdataTime})
     </insert>
 </mapper>
